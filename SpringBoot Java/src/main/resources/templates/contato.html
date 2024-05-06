@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link type='text/css' rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	
+
+
+	<!------ Include the above in your HEAD tag ---------->
+	<title>Inserir Contato</title>
+</head>
+
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="collapse navbar-collapse" id="textoNavbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+							<i class="fa fa-user"></i>Contato</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" th:href="@{listarContatos}"><i class="fa fa-search"></i>Listar Contato</a>
+								<a class="dropdown-item" th:href="@{atualizarContatos}"><i class="fa fa-pencil-square"></i>Editar Contato</a>
+								<a class="dropdown-item" th:href="@{listarExcluirContatos}"><i class="fa fa-trash"></i>Excluir Contato</a>							
+								
+							</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-0">Formulário de Contato</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">+
+                    <div id="login-box" class="col-md-12">
+                        <form id="cadastro-form" class="form" action="salvarContato" method="post" th:object="${contato}">
+                         
+	<h3 class="text-center text-info">Cadastro de Contatos</h3>
+	
+		
+		<div class="form-group">
+		<label for="nome" class="text-info"> 	Nome: </label><br>
+		<input type="text" name="username" id="username" th:field="*{nome}" placeholder="Nome" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="number" class="text-info"> telefone: </label><br>
+		<input type="number" name="number" id="number" th:field="*{telefone}" placeholder="Número" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="email" class="text-info">Email</label><br>
+		<input type="email" name="email" id="email" th:field="*{email}" placeholder="email" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="text" class="text-info">Adicionais</label><br>
+		<input type="text" name="email" id="email" th:field="*{adicionais}" placeholder="Informe o adicional" class="form-control">
+	</div>
+	
+	
+
+				                 <div id="register-link" class="text-center">
+                                <button type="submit" id="btnCadastrar" class="btn btn-success mt-4">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Adicione o seguinte script no final do corpo do HTML -->
+    <script>
+        // Adiciona um evento de clique ao botão de cadastro
+        $('#btnCadastrar').on('click', function () {
+            // Exibe um alerta
+            alert('Cadastro bem-sucedido!');
+        });
+    </script>
+    
+ 	<footer class="bg-primary text-center text-white py-3 fixed-bottom">
+          © 2023 SENAC
+    </footer>
+</body>
+</html>

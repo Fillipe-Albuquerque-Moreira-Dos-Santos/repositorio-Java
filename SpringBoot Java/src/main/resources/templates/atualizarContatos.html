@@ -1,0 +1,75 @@
+<html lang="pt-br" xsi:schemaLocation="http://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link type='text/css' rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+
+    <!------ Include the above in your HEAD tag ---------->
+    <title>Editar Contatos</title>
+</head>
+
+<body>
+
+    <header>
+       	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="collapse navbar-collapse" id="textoNavbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+							<i class="fa fa-user"></i>Contato</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" th:href="@{listarContatos}"><i class="fa fa-search"></i>Listar Contato</a>
+								<a class="dropdown-item" th:href="@{atualizarContatos}"><i class="fa fa-pencil-square"></i>Editar Contato</a>
+								<a class="dropdown-item" th:href="@{listarExcluirContatos}"><i class="fa fa-trash"></i>Excluir Contato</a>															
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+
+
+    <div class="container">
+        <h2>Edição de Contatos</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Nome</th>
+                    <th class="text-center" scope="col">Telefone</th>
+                    <th class="text-center" scope="col">Email</th>
+                    <th class="text-center" scope="col">Adicionais</th>
+                    <th class="text-center" scope="col">Alterar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" th:each="contato:${contatos}">
+                    <td class="text-center" th:text="${contato.nome}"></td>
+                    <td class="text-center" th:text="${contato.telefone}"></td>
+                    <td class="text-center" th:text="${contato.email}"></td>
+                    <td class="text-center" th:text="${contato.adicionais}"></td>
+                    <td class="text-center">
+                        <a class="btn btn-secondary" th:href="@{'alterar/' + ${contato.id}}">
+    					<i class="fa fa-pencil-square"></i> Alterar
+</a>
+
+                        </a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="bg-primary text-center text-white py-3 fixed-bottom">
+          © 2023 SENAC
+    </footer>
+</body>
+
+</html>
